@@ -3,8 +3,8 @@ package com.codecool.geometry.shapes;
 public class Square extends Rectangle {
 
 
-    public Square(double a, String perimeterFormula, String areaFormula) {
-        super(a, a, perimeterFormula, areaFormula);
+    public Square(double a) {
+        super(a, a, "Square");
     }
 
     @Override

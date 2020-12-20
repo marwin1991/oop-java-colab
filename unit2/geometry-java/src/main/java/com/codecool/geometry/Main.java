@@ -13,8 +13,8 @@ public class Main {
 
     public static void main(String[] args) {
         ShapeCollection shapeCollection = new ShapeCollection();
-        shapeCollection.addShape(new Square(4, "a*a", "4*a"));
-        shapeCollection.addShape(new Triangle(6, 7, 8, "a+b+c", "sqrt(s×(s-a)×(s-b)×(s-c))"  ));
+        shapeCollection.addShape(new Square(4));
+        shapeCollection.addShape(new Triangle(6, 7, 8));
 
         boolean isRunning = true;
 

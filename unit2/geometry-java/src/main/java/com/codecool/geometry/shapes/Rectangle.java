@@ -2,17 +2,19 @@ package com.codecool.geometry.shapes;
 
 public class Rectangle extends Shape {
 
-
-
     private final double width;
     private final double height;
 
-    public Rectangle(double width, double height, String perimeterFormula, String areaFormula) {
-        super(perimeterFormula, areaFormula);
+    public Rectangle(double width, double height) {
+        super("Rectangle");
         this.width = width;
         this.height = height;
+    }
 
-
+    protected Rectangle(double width, double height, String className) {
+        super(className);
+        this.width = width;
+        this.height = height;
     }
 
 

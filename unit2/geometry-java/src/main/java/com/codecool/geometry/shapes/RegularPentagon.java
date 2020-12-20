@@ -3,7 +3,7 @@ package com.codecool.geometry.shapes;
 public class RegularPentagon extends Shape {
 
     public RegularPentagon() {
-        super("perimeterFormula", "areaFormula");
+        super("RegularPentagon");
     }
 
     @Override

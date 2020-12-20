@@ -1,6 +1,8 @@
 package com.codecool.geometry.shapes;
 
 
+import com.codecool.geometry.utilities.FormulaProvider;
+
 /**
  * This is a abstract class representing geometrical shape.
  */
@@ -9,9 +11,9 @@ public abstract class Shape {
     private final String perimeterFormula;
     private final String areaFormula;
 
-    protected Shape(String perimeterFormula, String areaFormula) {
-        this.perimeterFormula = perimeterFormula;
-        this.areaFormula = areaFormula;
+    protected Shape(String className) {
+        this.perimeterFormula = FormulaProvider.getPerimeterForShape(className);
+        this.areaFormula = FormulaProvider.getAreaForShape(className);
     }
 
 

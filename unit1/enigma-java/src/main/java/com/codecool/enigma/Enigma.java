@@ -1,5 +1,9 @@
 package com.codecool.enigma;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 class Enigma {
 
     public static final String rot13 = "rot13";
@@ -18,7 +22,11 @@ class Enigma {
     public static void main(String[] args) {
         try {
             ArgsParser argsParser = new ArgsParser(args);
-            handleCipherOperation(argsParser);
+            if (argsParser.getOption().equals(Option.HELP)) {
+                System.out.println(MENU);
+            } else {
+                handleCipherOperation(argsParser);
+            }
         } catch (EnigmaException e) {
             System.out.println(e.getMessage());
             System.out.println(MENU);
@@ -27,7 +35,29 @@ class Enigma {
 
     private static void handleCipherOperation(ArgsParser argsParser) throws EnigmaException {
         Cipher cipher = CipherFactory.getCipherForArgs(argsParser);
+
+        try {
+            File myObj = new File(argsParser.getFile());
+            try (Scanner myReader = new Scanner(myObj)) {
+                while (myReader.hasNextLine()) {
+                    String data = myReader.nextLine();
+                    System.out.println(data);
+                    if (argsParser.getOption().equals(Option.ENCRYPT)) {
+                        System.out.println(cipher.encrypt(data));
+                    } else if (argsParser.getOption().equals(Option.DECRYPT)) {
+                        System.out.println(cipher.decrypt(data));
+                    }
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            throw new EnigmaException ("File not found");
+        }
+
+
         // use cipher
     }
+
+
 
 }

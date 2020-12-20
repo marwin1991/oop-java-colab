@@ -2,13 +2,45 @@ package com.codecool.geometry.shapes;
 
 public class Rectangle extends Shape {
 
+
+
+    private final double width;
+    private final double height;
+
+    public Rectangle(double width, double height, String perimeterFormula, String areaFormula) {
+        super(perimeterFormula, areaFormula);
+        this.width = width;
+        this.height = height;
+
+
+    }
+
+
     @Override
     public double calculateArea() {
-        return 0;
+        return width * height;
     }
 
     @Override
     public double calculatePerimeter() {
-        return 0;
+        return 2 * (width + height);
     }
+
+
+    //Rectangle, a = 2,00, b = 5,00
+    @Override
+    public String toString() {
+        return "Rectangle, " +
+                "a=" + width +
+                ", b=" + height;
+    }
+
+    protected double getWidth() {
+        return width;
+    }
+
+    protected double getHeight() {
+        return height;
+    }
+
 }

@@ -7,15 +7,19 @@ import com.codecool.geometry.shapes.Rectangle;
 import com.codecool.geometry.shapes.RegularPentagon;
 import com.codecool.geometry.shapes.Square;
 import com.codecool.geometry.shapes.Triangle;
+import com.codecool.geometry.utilities.ShapeTablePrinter;
 
 public class Main {
 
     public static void main(String[] args) {
+        ShapeCollection shapeCollection = new ShapeCollection();
+        shapeCollection.addShape(new Square(4, "a*a", "4*a"));
+        shapeCollection.addShape(new Triangle(6, 7, 8, "a+b+c", "sqrt(s×(s-a)×(s-b)×(s-c))"  ));
 
         boolean isRunning = true;
 
-	    while (isRunning) {
-	        int option = 0;  // TODO read the keyboard here
+        while (isRunning) {
+            int option = 2;  // TODO read the keyboard here
 
             switch (option) {
                 case 1:
@@ -23,6 +27,10 @@ public class Main {
                     break;
                 case 2:
                     // TODO Show all shapes
+                    String shapeTable = ShapeTablePrinter.getTable(shapeCollection.getShapes());
+                    System.out.println(shapeTable);
+                    System.exit(123);
+
                     break;
                 case 3:
                     // TODO Show shape with the largest perimeter
@@ -39,5 +47,6 @@ public class Main {
             }
         }
     }
+
 
 }

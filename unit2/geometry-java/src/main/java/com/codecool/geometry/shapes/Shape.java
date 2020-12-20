@@ -5,12 +5,24 @@ package com.codecool.geometry.shapes;
  * This is a abstract class representing geometrical shape.
  */
 public abstract class Shape {
+
+    private final String perimeterFormula;
+    private final String areaFormula;
+
+    protected Shape(String perimeterFormula, String areaFormula) {
+        this.perimeterFormula = perimeterFormula;
+        this.areaFormula = areaFormula;
+    }
+
+
     /**
      * Calculates shape's area.
      *
      * @return area of the shape
      */
+
     public abstract double calculateArea();
+
 
     /**
      * Calculates shape's perimeter.
@@ -28,5 +40,13 @@ public abstract class Shape {
      */
     public static boolean checkIfArgsGreaterThanZero(float... args) {
         return false;
+    }
+
+    public String getPerimeterFormula() {
+        return perimeterFormula;
+    }
+
+    public String getAreaFormula() {
+        return areaFormula;
     }
 }
